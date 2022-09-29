@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ValidationofForm</title>
+    <script >
+        function Validate()
+        {
+            var n=document.MyForm.Name.value;
+            if(n==""|| n.length<3|| n.length>=8)
+            {
+                alert("Please enter valid name and minimum length 3 characters ");
+                document.MyForm.Name.focus();
+                return false;
+
+            }
+            var emailID=document.MyForm.Email.value;
+            if(emailID=="")
+            {
+                alert("Please provide your Email");
+                document.MyForm.Email.focus();
+                return false;
+            }
+            atpos=emailID.indexOf("@");
+            dotpos=emailID.lastIndexOf(".");
+            if(atpos<1||(dotpos=atpos<2))
+            {
+                alert("Please enter correct email ID");
+                document.MyForm.Email.focus();
+                return false;
+            }
+            let x=document.MyForm.Phone.value;
+            if(isNaN(x)|| x<6000000000|| x>9999999999)
+            {
+                alert("Input Not Valid:");
+                document.MyForm.Phone.focus();
+                return false;
+            }
+            var z=document.MyForm.Zip.value;
+            if(z=="" ||isNaN(z)|| z.length!=6)
+            {
+                alert("Please Provide a zip in the format nnnnnn");
+                document.MyForm.Zip.focus();
+                return false;
+            }
+            var c=document.MyForm.Country.value; 
+            if(c=="-1")
+            {
+                alert("Please provide your Country!");
+                return false;
+
+            }
+            return(true);
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body bgcolor="bisque">
+    <h1><p align ="center"><b>Application Form Validation Using Javascript</b></p></h1>
+    <form name="MyForm" onchange="return(validate());">
+        <table cellspacing="5" cellpadding="5" align="center" border="5" width="434">
+            <tr>
+                <td align="right"><b>Name</b></td>
+                <td><input type="text" name="Name" size="50"></td>
+            </tr>
+            <tr>
+                <td align="right"><b>Phone Number</b></td>
+                <td><input type="text" name="Phone" size="50"></td>
+            </tr>
+            <tr>
+                <td align="right"><b>Email</b></td>
+                <td><input type="text" name="Email" size="50"></td>
+            </tr>
+            <tr>
+                <td align="right"><b>Zip Code</b></td>
+                <td><input type="text" name="Zip" size="50"></td>
+            </tr>
+            <tr><td align="right"><b>country</b></td>
+            <td>
+                <select name="Country">
+                    <option value="-1" selected>[chose yours]</option>
+                    <option value="1">INDIA</option>
+                    <option value="2">UK</option>
+                    <option value="3">USA</option>
+
+                </select>
+            </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button">    
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    
+</body>
+</html>
+
+        
+
+
+
+        
